@@ -1,0 +1,9 @@
+{
+    "project": {
+      "dbConfig": {
+        "host": "localhost",
+        "port": 5984,
+        "dbName": "mongodb+srv://kevin_cox:HP7mEsdYbMf6rXrO@cluster0.afuif.mongodb.net/?retryWrites=true&w=majority"
+      }
+    }
+  }
