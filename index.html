@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bootstrap Example</title>
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.1/css/dataTables.bootstrap5.min.css">
+    <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" language="javascript"
+        src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" language="javascript"
+        src="https://cdn.datatables.net/1.11.1/js/dataTables.bootstrap5.min.js"></script>
+</head>
+
+<body>
+    <div class="container" style="width:60%;">
+        <div style="margin-bottom: 40px;">
+            <h3>IOT sensor Light</h3>
+
+            <table id="light">
+                <thead>
+                    <tr>
+                        <th scope="col">Light measure</th>
+                        <th scope="col">date</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+
+        <div style="margin-bottom: 40px;">
+            <h3>IOT sensor Temperature</h3>
+
+            <table id="temp">
+                <thead>
+                    <tr>
+                        <th scope="col">Temperature measure</th>
+                        <th scope="col">date</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div style="margin-bottom: 40px;">
+            <h3>IOT sensor Soil</h3>
+
+            <table id="soil">
+                <thead>
+                    <tr>
+                        <th scope="col">Soil measure</th>
+                        <th scope="col">date</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div style="margin-bottom: 40px;">
+            <h3>IOT sensor Motor</h3>
+
+            <table id="motor">
+                <thead>
+                    <tr>
+                        <th scope="col">Motor measure</th>
+                        <th scope="col">date</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+
+    <script type="text/javascript" class="init">
+        $(document).ready(function () {
+            // Create a new DataTable object
+            table = $('#light').DataTable({
+                ajax: {
+                    url: 'http://127.0.0.1:4000/iot-sensor/light',
+                },
+                columns: [
+                    { data: 'light' },
+                    { data: 'timestamp' }
+                ]
+            })
+        });
+
+        $(document).ready(function () {
+            // Create a new DataTable object
+            table = $('#temp').DataTable({
+                ajax: {
+                    url: 'http://127.0.0.1:4000/iot-sensor/temp',
+                },
+                columns: [
+                    { data: 'temp' },
+                    { data: 'timestamp' }
+                ]
+            })
+        });
+
+        $(document).ready(function () {
+            // Create a new DataTable object
+            table = $('#soil').DataTable({
+                ajax: {
+                    url: 'http://127.0.0.1:4000/iot-sensor/soil',
+                },
+                columns: [
+                    { data: 'soil' },
+                    { data: 'timestamp' }
+                ]
+            })
+        });
+
+        $(document).ready(function () {
+            // Create a new DataTable object
+            table = $('#motor').DataTable({
+                ajax: {
+                    url: 'http://127.0.0.1:4000/iot-sensor/motor',
+                },
+                columns: [
+                    { data: 'motor' },
+                    { data: 'timestamp' }
+                ]
+            })
+        });
+    </script>
+
+
+
+</body>
+
+</html>

@@ -13,19 +13,15 @@ client.auth(function () {
     });
 
     ds.getDetails(function (err, details) {
-        console.log('details ds', details);
+        // console.log('details ds', details);
     });
-    var v = this.getVariable('temperature');
-    async function getVars() {
-        return this.getVariable('temperature');
-
-    };
+    var v = this.getVariable('62cb01921d84722bea030b6e');
 
     v.getDetails(function (err, details) {
-        console.log('details v', details);
+        // console.log('details v', details);
     })
 
-    v.saveValue(22)
+    // v.saveValue(30)
 
     v.getValues(function (err, data) {
         console.log('vals', data.results);
@@ -33,3 +29,4 @@ client.auth(function () {
 
 
 });
+
