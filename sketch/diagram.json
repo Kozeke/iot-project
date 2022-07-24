@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "author": "salah ismail",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": -51.16, "left": 316.07, "attrs": {} },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": -77.4,
+      "left": -8.94,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-slide-potentiometer",
+      "id": "pot1",
+      "top": 63.01,
+      "left": 526.43,
+      "attrs": { "travelLength": "30" }
+    },
+    {
+      "type": "wokwi-ntc-temperature-sensor",
+      "id": "ntc1",
+      "top": 56.09,
+      "left": 23.8,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-stepper-motor",
+      "id": "stepper1",
+      "top": -384.22,
+      "left": 246.69,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "ntc1:GND", "esp:GND.2", "black", [ "v-0.47", "h139.38", "v16.02" ] ],
+    [ "ldr1:GND", "ntc1:GND", "black", [ "h32.3", "v134.2", "h-0.56" ] ],
+    [ "ntc1:VCC", "ldr1:VCC", "red", [ "h78.53", "v-153.29" ] ],
+    [ "esp:3V3", "ntc1:VCC", "red", [ "v113.55", "h-180.69", "v-129" ] ],
+    [ "pot1:VCC", "esp:3V3", "red", [ "h0" ] ],
+    [ "esp:D33", "ldr1:AO", "green", [ "h0" ] ],
+    [ "esp:D35", "ntc1:OUT", "green", [ "h-45.95", "v95.19" ] ],
+    [ "stepper1:B-", "esp:D23", "green", [ "v50.26", "h63.53", "v69.04" ] ],
+    [ "esp:D22", "stepper1:B+", "green", [ "h14.34", "v-74.32", "h-62.31" ] ],
+    [ "esp:D21", "stepper1:A+", "green", [ "h24.97", "v-115.15", "h-86.85" ] ],
+    [ "stepper1:A-", "esp:D19", "green", [ "v35.91", "h100.28", "v1.32" ] ],
+    [ "esp:D32", "pot1:SIG", "green", [ "h-27.12", "v-83.31", "h185.25", "v190.5" ] ]
+  ]
+}
